@@ -15,5 +15,5 @@
   "function-runtime":"dotnetcore1.0",
   "function-memory-size" : 256,
   "function-timeout" : 30,
-  "function-handler" : "aws_schedule_emailer::aws_schedule_emailer.Function::FunctionHandler"
+  "function-handler" : "aws_schedule_emailer::aws_schedule_emailer.Function::ExecuteAsync"
 }

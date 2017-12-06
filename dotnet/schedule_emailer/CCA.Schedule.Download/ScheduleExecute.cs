@@ -16,7 +16,7 @@ namespace CCA.Schedule.Download
             var appts = await Appointments.GetAppointmentsAsync(client, DateTime.Now);
             var buffer = FormatAppts(appts);
 
-            await Emailer.EmailScheduleAsync(smtpUser, smtpPass, from, to, cc.Split(';', ' ', ',').Where(s => !string.IsNullOrEmpty(s)).ToArray(), $"CCA Schedule for {DateTime.Now:d}", buffer);
+            await Emailer.EmailScheduleAsync(smtpUser, smtpPass, from, to.Split(';', ' ', ',').Where(s => !string.IsNullOrEmpty(s)).ToArray(), cc.Split(';', ' ', ',').Where(s => !string.IsNullOrEmpty(s)).ToArray(), $"CCA Schedule for {DateTime.Now:d}", buffer);
         }
 
         private static string FormatAppts(IEnumerable<Appointment> appts)

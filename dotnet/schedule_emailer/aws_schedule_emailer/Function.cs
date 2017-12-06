@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 using Amazon.Lambda.Core;
@@ -14,29 +12,25 @@ namespace aws_schedule_emailer
     public class Function
     {
         
-        /// <summary>
-        /// A simple function that takes a string and does a ToUpper
-        /// </summary>
-        /// <param name="input"></param>
-        /// <param name="context"></param>
-        /// <returns></returns>
-        public async Task ExecuteAsync(string input, ILambdaContext context)
+        public async Task ExecuteAsync()
         {
             try
             {
-                var args = input.Split(new [] {' '}, StringSplitOptions.RemoveEmptyEntries);
-                if (args.Length < 5)
-                    throw new Exception("Usage ... smtpuser smtppass to user password cc");
+                var smtpUser = Environment.GetEnvironmentVariable("SmtpUser");
+                var smtpPass = Environment.GetEnvironmentVariable("SmtpPass");
+                var username = Environment.GetEnvironmentVariable("TheraNestUsername");
+                var password = Environment.GetEnvironmentVariable("TheraNestPassword");
 
-                var smtpuser = args[0];
-                var smtppass = args[1];
-                var toemail = args[2];
-                var username = args[3];
-                var password = args[4];
-                var cc = string.Join(", ", args.Skip(5));
+                var toEmail = Environment.GetEnvironmentVariable("ToEmail");
+                var ccEmail = Environment.GetEnvironmentVariable("CcEmail");
+
+                Log($"SmtpUser: {smtpUser}");
+                Log($"TheraNest User: {username}");
+                Log($"To Email: {toEmail}");
+                Log($"Cc Email: {ccEmail}");
 
                 var se = new ScheduleExecute();
-                await se.ExecuteAsync(smtpuser, smtppass, smtpuser, toemail, cc, username, password);
+                await se.ExecuteAsync(smtpUser, smtpPass, smtpUser, toEmail, ccEmail, username, password);
             }
             catch (Exception ex)
             {
