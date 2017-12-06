@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "schedule_emailer", "schedule_emailer\schedule_emailer.csproj", "{5EB7946A-0E49-4FAE-AD1F-DFA352966A75}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "aws_schedule_emailer", "aws_schedule_emailer\aws_schedule_emailer.xproj", "{BDC562A1-09F9-4143-98F3-2B46772FAF09}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "CCA.TheraNest.API", "CCA.TheraNest.API\CCA.TheraNest.API.xproj", "{38F8BF1D-36D3-429A-A239-407DB41C9888}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "CCA.Schedule.Download", "CCA.Schedule.Download\CCA.Schedule.Download.xproj", "{6F85C85B-B6CF-4AB6-9AFC-6F680395DDD4}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "cca_schedule_emailer", "cca_schedule_emailer\cca_schedule_emailer.xproj", "{9A399725-2DB1-49CC-9C54-282E6519FC76}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +17,22 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5EB7946A-0E49-4FAE-AD1F-DFA352966A75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5EB7946A-0E49-4FAE-AD1F-DFA352966A75}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5EB7946A-0E49-4FAE-AD1F-DFA352966A75}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5EB7946A-0E49-4FAE-AD1F-DFA352966A75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDC562A1-09F9-4143-98F3-2B46772FAF09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDC562A1-09F9-4143-98F3-2B46772FAF09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDC562A1-09F9-4143-98F3-2B46772FAF09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDC562A1-09F9-4143-98F3-2B46772FAF09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38F8BF1D-36D3-429A-A239-407DB41C9888}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38F8BF1D-36D3-429A-A239-407DB41C9888}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38F8BF1D-36D3-429A-A239-407DB41C9888}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38F8BF1D-36D3-429A-A239-407DB41C9888}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F85C85B-B6CF-4AB6-9AFC-6F680395DDD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F85C85B-B6CF-4AB6-9AFC-6F680395DDD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F85C85B-B6CF-4AB6-9AFC-6F680395DDD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F85C85B-B6CF-4AB6-9AFC-6F680395DDD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A399725-2DB1-49CC-9C54-282E6519FC76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A399725-2DB1-49CC-9C54-282E6519FC76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A399725-2DB1-49CC-9C54-282E6519FC76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A399725-2DB1-49CC-9C54-282E6519FC76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

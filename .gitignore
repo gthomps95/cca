@@ -240,3 +240,4 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/dotnet/schedule_emailer/cca_schedule_emailer/Properties/launchSettings.json
