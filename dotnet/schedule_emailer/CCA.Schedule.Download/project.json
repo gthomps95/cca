@@ -3,7 +3,6 @@
 
   "dependencies": {
     "CCA.TheraNest.API": "1.0.0-*",
-    "log4net": "2.0.8",
     "MailKit": "1.22.0",
     "NETStandard.Library": "1.6.0"
   },

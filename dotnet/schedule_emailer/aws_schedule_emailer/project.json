@@ -8,14 +8,14 @@
       "type": "platform",
       "version": "1.0.0"
     },
-
     "Amazon.Lambda.Core": "1.0.0*",
     "Amazon.Lambda.Serialization.Json": "1.1.0",
-
-    "Amazon.Lambda.Tools" : {
-      "type" :"build",
-      "version":"1.8.0"
-    }
+    "Amazon.Lambda.Tools": {
+      "type": "build",
+      "version": "1.8.0"
+    },
+    "CCA.Schedule.Download": "1.0.0-*",
+    "CCA.TheraNest.API": "1.0.0-*"
   },
 
   "tools": {

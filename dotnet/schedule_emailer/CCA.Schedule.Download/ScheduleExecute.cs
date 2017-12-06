@@ -4,23 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CCA.TheraNest.API;
-using log4net;
 
 namespace CCA.Schedule.Download
 {
     public class ScheduleExecute
     {
-        private static readonly ILog Logger = LogManager.GetLogger(typeof(ScheduleExecute));
-
         public async Task ExecuteAsync(string smtpUser, string smtpPass, string from, string to, string cc, string username, string password)
         {
             var client = await Account.SignIn(username, password);
 
             var appts = await Appointments.GetAppointmentsAsync(client, DateTime.Now);
             var buffer = FormatAppts(appts);
-            Logger.Debug(buffer);
 
-            await Emailer.EmailScheduleAsync(smtpUser, smtpPass, from, to, cc.Split(';', ' ', ',').Where(s => !string.IsNullOrEmpty(s)).ToArray(), $"Schedule for {DateTime.Now:d}", buffer);
+            await Emailer.EmailScheduleAsync(smtpUser, smtpPass, from, to, cc.Split(';', ' ', ',').Where(s => !string.IsNullOrEmpty(s)).ToArray(), $"CCA Schedule for {DateTime.Now:d}", buffer);
         }
 
         private static string FormatAppts(IEnumerable<Appointment> appts)
