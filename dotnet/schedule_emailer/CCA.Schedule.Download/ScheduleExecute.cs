@@ -23,15 +23,15 @@ namespace CCA.Schedule.Download
         {
             var sb = new StringBuilder();
 
-            sb.AppendLine("Title, Date/Time, Staff");
+            sb.AppendLine("Date/Time, Title, Staff");
 
-            foreach (var appt in appts.OrderBy(a => a.GetApptDate()))
+            foreach (var appt in appts.OrderBy(a => a.GetApptDate()).ThenBy(a => a.Title))
             {
                 var title = PrepareForCsv(appt.Title);
                 var staff = PrepareForCsv(appt.StaffMember.Name);
                 var date = PrepareForCsv(appt.GetApptDate()?.ToString("G") ?? "");
 
-                sb.Append($"{title}, {date}, { staff}");
+                sb.Append($"{date}, {title}, {staff}");
                 sb.AppendLine();
             }
 

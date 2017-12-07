@@ -15,7 +15,8 @@
       "version": "1.8.0"
     },
     "CCA.Schedule.Download": "1.0.0-*",
-    "CCA.TheraNest.API": "1.0.0-*"
+    "CCA.TheraNest.API": "1.0.0-*",
+    "AWSSDK.KeyManagementService": "3.3.4.1"
   },
 
   "tools": {
