@@ -15,8 +15,15 @@ namespace CCA.Schedule.Download
 
             var appts = await Appointments.GetAppointmentsAsync(client, DateTime.Now);
             var buffer = FormatAppts(appts);
+            var fileName = GetFileName();
 
-            await Emailer.EmailScheduleAsync(smtpUser, smtpPass, from, to.Split(';', ' ', ',').Where(s => !string.IsNullOrEmpty(s)).ToArray(), cc.Split(';', ' ', ',').Where(s => !string.IsNullOrEmpty(s)).ToArray(), $"CCA Schedule for {DateTime.Now:d}", buffer);
+            await Emailer.EmailScheduleAsync(smtpUser, smtpPass, from, to.Split(';', ' ', ',').Where(s => !string.IsNullOrEmpty(s)).ToArray(), cc.Split(';', ' ', ',').Where(s => !string.IsNullOrEmpty(s)).ToArray(), $"CCA Schedule for {DateTime.Now:d}", buffer, fileName, buffer);
+        }
+
+        private static string GetFileName()
+        {
+            var fileName = $"cca_schedule_{DateTime.Now:yyyyMMddHHmmss}.csv";
+            return fileName;
         }
 
         private static string FormatAppts(IEnumerable<Appointment> appts)
@@ -28,8 +35,8 @@ namespace CCA.Schedule.Download
             foreach (var appt in appts.OrderBy(a => a.GetApptDate()).ThenBy(a => a.Title))
             {
                 var title = PrepareForCsv(appt.Title);
-                var staff = PrepareForCsv(appt.StaffMember.Name);
-                var date = PrepareForCsv(appt.GetApptDate()?.ToString("G") ?? "");
+                var staff = PrepareForCsv(appt.StaffMember.Name.Split(' ').FirstOrDefault() ?? "");
+                var date = PrepareForCsv(appt.GetApptDate()?.ToString("t") ?? "");
 
                 sb.Append($"{date}, {title}, {staff}");
                 sb.AppendLine();
